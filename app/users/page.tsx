@@ -1,18 +1,28 @@
-import React from "react";
+import React, { Suspense } from "react";
 import UserTable from "./UserTable";
+import Link from "next/link";
 
 export interface User {
   id: number;
   name: string;
-  email:string
+  email: string;
 }
-const UsersPage = async () => {
-  
+
+interface Props {
+  searchParams: { sortOrder: string };
+}
+const UsersPage = async ({ searchParams: { sortOrder } }: Props) => {
+  console.log(sortOrder);
 
   return (
     <div className="text-black">
       <h1>Users</h1>
-     <UserTable/>
+      <Link href="/users/new" className="btn">
+        New User
+      </Link>
+      <Suspense fallback={<p>Loading...</p>}>
+      <UserTable sortOrder={sortOrder} />
+      </Suspense>
     </div>
   );
 };
