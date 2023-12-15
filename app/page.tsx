@@ -9,9 +9,11 @@ export default async function Home() {
   return (
    <main>
     
-    <h1 className='text-black'> Hello {session?.user?.name} </h1>
+    {/* <h1 className='text-black'> Hello {session?.user?.name} </h1>
     <Link href="/users">Users</Link>
-    <ProductsCard/>
+    <ProductsCard/> */}
+
+    
     </main>
    
   )
